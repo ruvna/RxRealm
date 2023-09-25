@@ -41,7 +41,7 @@ public protocol NotificationEmitter {
 
 extension List: NotificationEmitter {
     public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.List<Element>>) -> Void) -> RealmSwift.NotificationToken {
-        return self.observe(on: queue, block)
+        return self.observe(keyPaths: nil, on: queue, block)
     }
     
   public func toAnyCollection() -> AnyRealmCollection<Element> {
@@ -56,7 +56,7 @@ extension List: NotificationEmitter {
 
 extension AnyRealmCollection: NotificationEmitter {
     public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.AnyRealmCollection<Element>>) -> Void) -> RealmSwift.NotificationToken {
-        return self.observe(on: queue, block)
+        return self.observe(keyPaths: nil, on: queue, block)
     }
     
   public func toAnyCollection() -> AnyRealmCollection<Element> {
@@ -71,7 +71,7 @@ extension AnyRealmCollection: NotificationEmitter {
 
 extension Results: NotificationEmitter {
     public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.Results<Element>>) -> Void) -> RealmSwift.NotificationToken {
-        return self.observe(on: queue, block)
+        return self.observe(keyPaths: nil, on: queue, block)
     }
     
   public func toAnyCollection() -> AnyRealmCollection<Element> {
@@ -86,7 +86,7 @@ extension Results: NotificationEmitter {
 
 extension LinkingObjects: NotificationEmitter {
     public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.LinkingObjects<Element>>) -> Void) -> RealmSwift.NotificationToken {
-        return self.observe(on: queue, block)
+        return self.observe(keyPaths: nil, on: queue, block)
     }
     
   public func toAnyCollection() -> AnyRealmCollection<Element> {
